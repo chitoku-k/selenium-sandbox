@@ -14,7 +14,11 @@ builder.setChromeOptions(options);
 
 const driver = builder.build();
 (async () => {
-    await driver.manage().setTimeouts({ implicit: 10 });
+    await driver.manage().setTimeouts({
+        implicit: 10,
+        pageLoad: 10,
+        script: 10,
+    });
     await driver.get("https://tweetdeck.twitter.com");
     await driver.wait(until.titleIs("TweetDeck"));
     const login = await driver.findElement(By.css("section.form-login a.Button"));
