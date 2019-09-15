@@ -9,9 +9,11 @@ matrix:
       dist: trusty
       addons:
         apt:
+          update: true
           sources:
             - google-chrome
           packages:
+            - dpkg
             - google-chrome-stable
     - os: osx
       node_js: '12'
